@@ -2,7 +2,7 @@
 import urllib2
 import re
 import urllib
-
+import subprocess
 
 url ="http://www.zhangzishi.cc/20151004mt.html"
 #定义Header，模拟浏览器向服务器发起请求
@@ -20,8 +20,10 @@ img_tag = re.compile(r'src="(.+?\.jpg)"')
 img_links = re.findall(img_tag,response.read())
 
 #下载图片
-img_counter = 0
+#img_counter = 0
+download_directory  = 'E:\LearnPython/pictures/'
 for img_link in img_links:
-    img_name = '%s.jpg' % img_counter
-    urllib.urlretrieve(img_link,"E:\LearnPython\pictures\%s" % img_name)
-    img_counter += 1
+    #img_name = '%s.jpg' % img_counter
+    #urllib.urlretrieve(img_link,"E:\LearnPython\pictures\%s" % img_name)
+    #img_counter += 1
+    subprocess.call("wget img_link",shell=False)
