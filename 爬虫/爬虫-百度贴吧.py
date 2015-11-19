@@ -16,7 +16,6 @@ img_links = re.findall(img_tag,content)
 img_counter = 0
 for img_link in img_links:
     img_name = '%s.jpg' % img_counter
-    download_directory = "E:\LearnPython\pictures"
     urllib.urlretrieve(img_link,"E:\LearnPython\pictures\%s" % img_name)
     img_counter += 1
 
