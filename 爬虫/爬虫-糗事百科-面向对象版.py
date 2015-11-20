@@ -2,8 +2,6 @@
 import urllib2
 import urllib
 import re
-import thread
-import time
 class QSBK: #定义一个糗事百科类
     def __init__(self): #初始化方法，定义一些变量
         self.pageIndex = 1
