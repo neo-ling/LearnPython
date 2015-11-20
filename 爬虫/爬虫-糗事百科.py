@@ -9,9 +9,9 @@ headers = {'User-Agent':"user_agent"}
 try:
     request = urllib2.Request(url,headers = headers)
     response = urllib2.urlopen(request)
-    print response.read()
+    #print response.read()
     content = response.read().decode('utf-8')
-    pattern  = re.compile('<h2>(.*?)</h2>.*?<div class="content">(.*?)<!--(.*?)--></div>',re.S)
+    pattern = re.compile(r'<div.*?class="author.*?>.*?<a.*?href.*?title="(.*?)">.*?</a>.*?<div.*?class="content">(.*?)<!--.*?</div>.*?<div.*?class="stats.*?<i.*?class="number">(.*?)</i>', re.S)
     items = re.findall(pattern,content)
     for item in items:
         print item[0],item[1],item[2]
