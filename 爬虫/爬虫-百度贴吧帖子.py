@@ -65,12 +65,12 @@ class BDTB:
             content = "\n" + self.tool.replace(item) + "\n"
             contents.append(content.encode('utf-8'))
         return contents
-    def setFileTitle(self,title):
+    def setFileTitle(self,title): #如果没有获取到帖子标签，则默认标题是百度贴吧
         if title is not None:
             self.file = open(title + ".","w+")
         else:
             self.file = open(self.defaultTitle + ".txt","w+")
-    def writeDate(self,contents):
+    def writeDate(self,contents): #将帖子内容写入到文件中
         for item in contents:
             if self.floorTag == "1":
                 floorLine = "\n" + str(self.floor) + u"---------------------------------------------------\n"
